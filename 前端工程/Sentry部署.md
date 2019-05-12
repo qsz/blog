@@ -97,7 +97,7 @@ docker-compose up -d
 
 ##前端项目接入Sentry
 
-![界面](https://github.com/qsz/blog/前端工程/files/sentry_1.png)
+![界面](https://github.com/qsz/blog/blob/master/前端工程/files/sentry_1.png)
 
 前端框架React，vue，Angular都可以接入Sentry
 
@@ -107,7 +107,7 @@ docker-compose up -d
 
 2.进入项目，按下图选择，获取项目dsn
 
-![获取项目dsn](https://github.com/qsz/blob/前端工程/files/sentry_2.png)
+![获取项目dsn](https://github.com/qsz/blog/blob/master/前端工程/files/sentry_2.png)
 
 3.在vue项目中接入Sentry SDK
 
@@ -216,7 +216,7 @@ docker-compose up -d
 
 4.在sentry项目的所有集成页面找到插件，启用，并设置`Access Token(可在钉钉机器人设置中webhook选项找到)`
 
-![plugin](前端工程/files/sentry_3.png)
+![plugin](https://github.com/qsz/blog/blob/master/前端工程/files/sentry_3.png)
 
 ![AccessToken](https://github.com/qsz/sentry-dingding/blob/master/docs/images/options.png)
 
@@ -232,11 +232,11 @@ Sentry通知功能基于`sentry.plugins.bases.notify`，可以下载插件`https
 
 1.在后台管理中添加成员
 
-![invite](https://github.com/qsz/blob/前端工程/files/sentry_4.png)
+![invite](https://github.com/qsz/blog/blob/master/前端工程/files/sentry_4.png)
 
 2.此时还没有新建账号，点击刚添加的成员，打开邀请链接，即可进行注册
 
-![invite](https://github.com/qsz/blob/前端工程/files/sentry_5.png)
+![invite](https://github.com/qsz/blog/blob/master/前端工程/files/sentry_5.png)
 
 
 
