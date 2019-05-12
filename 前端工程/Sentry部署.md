@@ -216,7 +216,7 @@ docker-compose up -d
 
 4.在sentry项目的所有集成页面找到插件，启用，并设置`Access Token(可在钉钉机器人设置中webhook选项找到)`
 
-![plugin](https://github.com/qsz/blob/前端工程/files/sentry_3.png)
+![plugin](前端工程/files/sentry_3.png)
 
 ![AccessToken](https://github.com/qsz/sentry-dingding/blob/master/docs/images/options.png)
 
