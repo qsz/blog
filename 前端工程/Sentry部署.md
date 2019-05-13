@@ -221,7 +221,7 @@ redis-py-cluster==1.3.4 #相关依赖需要1.3.4版本的redis-py-cluster
 ```
 vim Dockerfile
 #添加以下配置
-RUN pip install git+https://github.com/anshengme/sentry-dingding
+RUN pip install git+https://github.com/anshengme/sentry-dingding.git
 ```
 
 尝试过以下三个插件，在我的部署中只有第一个能正常发送钉钉信息
