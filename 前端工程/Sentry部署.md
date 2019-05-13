@@ -39,7 +39,7 @@ Sentry搭建方式有两种：1.通过Docker；2.通过Python。
 
 官方推荐Docker部署。
 
-####Docker安装
+#### Docker安装
 
 1.安装管理repository及扩展包的工具 
 
@@ -100,7 +100,7 @@ docker-compose up -d
 
 安装过程没出错的话，打开`http://ip:9000`就能看到Sentry的登入界面
 
-####扩展
+#### 扩展
 
 docker下所有的volume都在host机器上的 `/var/lib/docker/volumes`目录下
 
@@ -123,7 +123,7 @@ $ docker volume rm $(docker volume ls -qf dangling=true)
 
 前端框架React，vue，Angular都可以接入Sentry
 
-###以vue为例
+### 以vue为例
 
 1.在sentry后台新建vue项目
 
@@ -156,7 +156,7 @@ Sentry.init({
 
 ## 扩展
 
-###配置邮件提醒
+### 配置邮件提醒
 
 每次在后台查看报错信息，时效性太低，需要配置邮件提醒功能
 
@@ -206,7 +206,7 @@ x-defaults: &defaults
 
 
 
-###比邮箱时效性更强-接入钉钉机器人
+### 比邮箱时效性更强-接入钉钉机器人
 
 1.修改requirements.txt文件
 
@@ -244,7 +244,7 @@ docker-compose up -d
 
 ![AccessToken](https://github.com/qsz/sentry-dingding/blob/master/docs/images/options.png)
 
-####扩展：自定义sentry-钉钉通知内容
+#### 扩展：自定义sentry-钉钉通知内容
 
 Sentry通知功能基于`sentry.plugins.bases.notify`，可以下载插件`https://github.com/anshengme/sentry-dingding`，改写plugin.py中的信息，实现自定义钉钉通知内容
 
@@ -252,7 +252,7 @@ Sentry通知功能基于`sentry.plugins.bases.notify`，可以下载插件`https
 
 
 
-###添加成员
+### 添加成员
 
 一个项目不可能只有一个超级管理员，我们可以通过邀请机制注册新账号。
 
@@ -268,7 +268,7 @@ Sentry通知功能基于`sentry.plugins.bases.notify`，可以下载插件`https
 
 
 
-###接入小程序
+### 接入小程序
 
 Sentry没有提供小程序相关SDK，搜索发现[有赞raven-weapp](https://github.com/youzan/raven-weapp)已经改写出了JavaScript版本的SDK，引用之
 
@@ -286,7 +286,7 @@ onError(msg) {
 
 
 
-###设置时区
+### 设置时区
 
 Sentry默认时区不是中国时区，改之
 
@@ -300,6 +300,6 @@ SENTRY_DEFAULT_TIME_ZONE = 'Asia/Shanghai'
 
 
 
-###sourcemap
+### sourcemap
 
 待解决后更新...
