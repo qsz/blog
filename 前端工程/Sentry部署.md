@@ -196,7 +196,7 @@ x-defaults: &defaults
 
 重启Sentry服务 ` docker-compose up -d`
 
-##### 注意点
+#### 注意点
 
 * 163邮箱SENTRY_EMAIL_PORT建议用25，qq邮箱SENTRY_EMAIL_PORT建议用587
 * SENTRY_EMAIL_PASSWORD是邮箱授权码，不是邮箱密码。如何获取邮箱授权码可以百度
@@ -299,7 +299,7 @@ SENTRY_DEFAULT_TIME_ZONE = 'Asia/Shanghai'
 
 
 
-   
+&nbsp;
 ### sourcemap
 
 待解决后更新...
