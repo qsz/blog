@@ -17,7 +17,7 @@
 
 
 
-
+  
 
 ## 准备工作
 
@@ -32,7 +32,7 @@
 
 
 
-
+  
 ## 开始搭建
 
 Sentry搭建方式有两种：1.通过Docker；2.通过Python。
@@ -115,8 +115,8 @@ $ docker volume rm $(docker volume ls -qf dangling=true)
 
 
 
-
-
+   
+   
 ## 前端项目接入Sentry
 
 ![界面](https://github.com/qsz/blog/blob/master/前端工程/files/sentry_1.png)
@@ -205,7 +205,7 @@ x-defaults: &defaults
 
 
 
-
+   
 ### 比邮箱时效性更强-接入钉钉机器人
 
 1.修改requirements.txt文件
@@ -251,7 +251,7 @@ Sentry通知功能基于`sentry.plugins.bases.notify`，可以下载插件`https
 
 
 
-
+   
 ### 添加成员
 
 一个项目不可能只有一个超级管理员，我们可以通过邀请机制注册新账号。
@@ -267,7 +267,7 @@ Sentry通知功能基于`sentry.plugins.bases.notify`，可以下载插件`https
 
 
 
-
+   
 ### 接入小程序
 
 Sentry没有提供小程序相关SDK，搜索发现[有赞raven-weapp](https://github.com/youzan/raven-weapp)已经改写出了JavaScript版本的SDK，引用之
@@ -285,7 +285,7 @@ onError(msg) {
 
 
 
-
+   
 ### 设置时区
 
 Sentry默认时区不是中国时区，改之
@@ -299,7 +299,7 @@ SENTRY_DEFAULT_TIME_ZONE = 'Asia/Shanghai'
 
 
 
-
+   
 ### sourcemap
 
 待解决后更新...
