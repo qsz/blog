@@ -209,7 +209,7 @@ docker-compose build
 
 ![私有仓库](https://github.com/qsz/blog/blob/master/前端工程/files/Nexus_6.png)
 
-**Name：**仓库名字
+**Name**: 仓库名字
 
 **Blob store**：上一步创建的store
 
