@@ -51,7 +51,7 @@ verdaccio 目前有人在积极维护，利用docker搭建也很方便
 
 4.打开 `http://ip:4873`, 看到如下界面, 则说明搭建成功
 
-![verdaccio界面](https://github.com/qsz/blog/blob/master/前端工程/files/verdaccio_1.png)
+![verdaccio界面](./files/verdaccio_1.png)
 
 ### 修改配置文件
 
@@ -169,7 +169,7 @@ docker-compose build
 
 4.打开 `http://ip:8081`, 看到如下界面, 则说明搭建成功
 
-![Nexus界面](https://github.com/qsz/blog/blob/master/前端工程/files/Nexus_1.png)
+![Nexus界面](./files/Nexus_1.png)
 
 ### 创建仓库
 
@@ -181,21 +181,21 @@ docker-compose build
 
 选择设置，依次选择`Blob Stores`, `Repositories`
 
-![设置界面](https://github.com/qsz/blog/blob/master/前端工程/files/Nexus_2.png)
+![设置界面](./files/Nexus_2.png)
 
 新建`Blob Stores`,用于存放仓库文件
 
-![Blob Stores](https://github.com/qsz/blog/blob/master/前端工程/files/Nexus_3.png)
+![Blob Stores](./files/Nexus_3.png)
 
 创建Repositories, npm仓库有以下三种类型
 
-![Blob Stores](https://github.com/qsz/blog/blob/master/前端工程/files/Nexus_4.png)
+![Blob Stores](./files/Nexus_4.png)
 
 #### 创建代理仓库
 
 当本地没有仓库时，代理仓库会去请求远程仓库，并将远程仓库缓存到本地
 
-![代理仓库](https://github.com/qsz/blog/blob/master/前端工程/files/Nexus_5.png)
+![代理仓库](./files/Nexus_5.png)
 
 **Name：**仓库名字
 
@@ -207,7 +207,7 @@ docker-compose build
 
 私有仓库的地址，用于管理私有的npm包
 
-![私有仓库](https://github.com/qsz/blog/blob/master/前端工程/files/Nexus_6.png)
+![私有仓库](./files/Nexus_6.png)
 
 **Name**: 仓库名字
 
@@ -217,7 +217,7 @@ docker-compose build
 
 npm组可以添加私有和代理仓库，这样通过group可以同时访问私有和代理仓库
 
-![npm组](https://github.com/qsz/blog/blob/master/前端工程/files/Nexus_7.png)
+![npm组](./files/Nexus_7.png)
 
 <br/>
 
@@ -225,13 +225,13 @@ npm组可以添加私有和代理仓库，这样通过group可以同时访问私
 
 发布私服需要设置权限, 点击Realms，添加` npm Bearer Token Realm `
 
-![npm组](https://github.com/qsz/blog/blob/master/前端工程/files/Nexus_8.png)
+![npm组](./files/Nexus_8.png)
 
 ### 发布一个私有库
 
 点击仓库名的copy选项，可以获取npm register地址
 
-![npm组](https://github.com/qsz/blog/blob/master/前端工程/files/Nexus_9.png)
+![npm组](./files/Nexus_9.png)
 
 ```
 npm config set registry http://xxxxx:8081/repository/npm-gruop/   # 设置npm地址
@@ -252,7 +252,7 @@ npm publish --registry=http://xxxx:8081/repository/npm-private/   # 发布包
 
 ### 添加用户
 
-![添加用户](https://github.com/qsz/blog/blob/master/前端工程/files/Nexus_10.png)
+![添加用户](./files/Nexus_10.png)
 
 ### 与verdaccio，gitlab对比
 
