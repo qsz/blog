@@ -11,18 +11,18 @@
 反射型主要来自用户的主动请求一个带攻击的链接<br>
 当用户点击带有xss攻击的链接 `http://test?query=<script>alert('xss')</script>` 时，细分为两种：
 
-* 服务端获取url参数name，并将name解析到html中返回给客户端<br>伪代码:
+* 服务端获取url参数name，并将name解析到html中返回给客户端<br>伪代码: 返回带有xss攻击语句的html片段
 ```html
      <html>
        <div>...</div>
        <script>alert('xss')</script>
      </html>
 ```
-* 服务端没有解析url参数，返回正常的页面。但客户端在js执行过程中，获取了url参数，并将其写入到页面中。该方法也称为DOM型xss攻击<br>
+* 服务端没有解析url参数，返回正常的页面。但客户端在js执行过程中，获取了url参数，并将其写入到页面中。该方法也称为**DOM型xss攻击**<br>
 伪代码:
 ```js
      var query = url.query
-     document.body.appendChild(query)
+     document.body.innerHTML(query)
      $('div').html(query)
 ```
 上述两种都将执行注入的脚本
@@ -83,14 +83,14 @@
 
 ## 如何防御
 
-xss防御最好还是需要后端进行，尤其是存储型xss攻击。但通过观察xss攻击原理，我们可以发现，对于反射型，前端还是可以有所作为
-
+xss防御最好还是需要后端进行，尤其是存储型xss攻击。但通过观察xss攻击原理，我们可以发现，前端还是可以有所作为
 * 对用户的数据进行转义编码，转化为纯文本而不是代码
+
+* 尽量避免使用`innerHTML`, `document.write()`等方法，使用时需要对插入的内容进行判断，避免插入危险的html结构
 
 * 过滤危险的DOM节点,  如 img，style
 
 * 过滤危险的节点属性，如 on*, href, src，尽量避免用内联事件，用`addEventListener`代替
-
   ```js
   // 过滤内联事件 // 在addEventListener 中过滤
   <div onclick="alert(xss)" id='xss'>xss</div>
@@ -110,14 +110,19 @@ xss防御最好还是需要后端进行，尤其是存储型xss攻击。但通�
   }
   
   ```
-
+  
 * 对`javascript:`，`eval`这类关键字或者语句建立黑名单，对其进行过滤删选
-
   ```js
   // 如果是a标签且存在'javascript:', 则改写href属性
   if(element.tagName === 'A' && element.protocol === 'javascript:') {
     elem.href = 'javascript:void(0)';
   }
   ```
-
+  
 * 对资源文件建立白名单域名，如img的src属性值，href值只能为白名单下的资源
+
+
+
+## 总结
+
+由于前端源码通常暴露在外部，理论上无论前端如何防御，攻击者都能通过分析代码找到漏洞，但我们前端如果能加上一道防御，大大增加攻击者的攻击难度，也是为安全上了一道锁。
