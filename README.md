@@ -13,7 +13,7 @@
 * 前端进阶
   * [前端安全之防御XSS跨站脚本攻击](前端进阶/XSS跨站脚本攻击.md)
   * [前端安全之防御CSRF跨站请求伪造](前端进阶/CSRF跨站请求伪造.md)
-  * [Mutation Observer API 学习](前端进阶/MutationObserverAPI.md)
+  * [监视DOM变动-MutationObserver](前端进阶/MutationObserverAPI.md)
   * [HTMLElement, HTMLInputElement]
 
 * 前端可视化
