@@ -27,21 +27,23 @@
   
   ```html
   
+  ```
+
 <!-- document.querySelectorAll获取的NodeList就是静态的，代码 -->
   <ul id='parent'>
     <li>first</li>
   </ul>  
-    
+
   <script>
   // js: 
   const parentUl = document.querySelector('#parent')
   const child_li = document.querySelectorAll('#parent li')  
   cosnt child_li_1 = child_li.length   // child_li_1 === 1
-  
+
   const secondLi = document.createElement('li');
   const textNode = document.createTextNode('second'); 
   secondLi.appendChild(textNode)
-  
+
   parentUl.appendChild(secondLi)
   cosnt child_li_2 = child_li.length   
   </script>
@@ -75,7 +77,7 @@ HTMLCollection对象表示一个包含了元素（元素顺序为文档流中的
   box.children：HTMLCollection [p]
   box.childNodes：NodeList(5) [text, comment, text, p, text]
   </script>
-  ```
+```
 
   通过观察，发现`box.children`返回`HTMLCollection`集合，里面只包含一个元素节点
 
