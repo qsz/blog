@@ -48,7 +48,7 @@ secondLi.appendChild(textNode)
   ```
   
 
-以上代码结果，发现` child_li_1 === child_li_2`，而且此时`child_li`仍只有一个`first li`元素。这就说明当NodeList集合定义后，后续的改动都不会影响集合的内容，这种特性就是静态的
+​       以上代码结果，发现` child_li_1 === child_li_2`，而且此时`child_li`仍只有一个`first li`元素。这就说 明当NodeList集合定义后，后续的改动都不会影响集合的内容，这种特性就是静态的
 
   
 
@@ -77,10 +77,7 @@ HTMLCollection对象表示一个包含了元素（元素顺序为文档流中的
   box.childNodes：NodeList(5) [text, comment, text, p, text]
   </script>
   ```
-```
-
   通过观察，发现`box.children`返回`HTMLCollection`集合，里面只包含一个元素节点
-
   `box.childNodes`返回`NodeList`集合，包含的元素比`HTMLCollection`多很多，里面有`注释节点`,`文本节点`,`元素节点`。
 
 
@@ -91,7 +88,7 @@ HTMLCollection对象表示一个包含了元素（元素顺序为文档流中的
 
 继续上个例子，我们将`注释节点`,`文本节点`,`元素节点`展开，获取各自的`__proto__`属性
 
-​```js
+```js
 box.childNodes.forEach((node) => {
 	console.log('node:', node.__proto__)
 })
@@ -172,6 +169,8 @@ Element.prototype.__proto__ === Node.prototype
 
 
 <br/>
+
+## 总结
 
 `NodeList`, `HTMLCollection`, `HTMLElement`的学习就到此为止了，在工作学习中，任何对Node节点的操作，本质上都是由这些接口控制，所以在遇到难点的时候，大家可以考虑从这些接口入手，找到解决方法！
 
