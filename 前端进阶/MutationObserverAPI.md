@@ -95,3 +95,73 @@ observer.observe(document.documentElement, {
 });
 ```
 
+## MutationObserver 实现 Vue.nextTick
+
+我们知道，为了提高性能，Vue会将同一事件循环中的所有数据变化缓冲到一起，只会执行一次，并在这一事件循环结束后更新DOM，所以Vue中DOM的更新是异步的。Vue提供了`Vue.nextTick(callback)`方法，在回调函数中可以获取更新完后的DOM
+
+在事件循环中，任务队列里有宏任务( **task **或者 **macrotask**)和微任务( **microtask **)。当数据变化时，组件会在下一个事件循环中更新，结束之后我们在**microtask**（`MutationObserver`回调会产生**microtask**）就能获取到最新的DOM
+
+接下来，我们用`MutationObserver`实现`Vue.nextTick`
+
+```html
+<!--Vue 代码-->
+<div>
+  <div id='box'>更改前的text</div>
+  <button @click='changeText'>改变text</button>
+</div>
+
+<script>
+  // 这是我们自定义的nextTick
+  const nextTick = (function () {
+    let counter = 1
+    let observerCallback = function() {}
+    let observerHandle = function(mutations) {
+      observerCallback()
+    }
+    const observer = new MutationObserver(observerHandle) // 注册MutationObserver
+    const textNode = document.createTextNode(counter)
+    observer.observe(textNode, {
+      characterData: true
+    })
+    const timerFunc = () => {
+      counter = counter + 1
+      textNode.data = counter
+    }
+    return function (callback) {
+      observerCallback = callback
+      timerFunc()       // 每次调用nextTick的时候，改变textNode的值，从而触发MutationObserver
+    }
+	})()
+  
+  const box = document.getElementById('box')
+  function changeText(){
+    Promise.resolve().then(function() { // 模拟数据更新，渲染dom
+      box.innerHTML = '更改后的text'
+    })
+    nextTick(function() {
+      console.log('这才是真正的更改后的text:',  box.innerHTML)
+    })
+    console.log('更改后的text:', box.innerHTML)
+  }
+
+</script>
+
+
+```
+
+上面代码的打印结果为
+> 
+> 更改后的text: 更改前的text
+> 
+> 这才是真正的更改后的text: 更改后的text
+> 
+
+
+
+
+## 参考
+
+http://javascript.ruanyifeng.com/dom/mutationobserver.html
+
+https://www.zhihu.com/question/55364497
+
