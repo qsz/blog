@@ -135,7 +135,7 @@ observer.observe(document.documentElement, {
   
   const box = document.getElementById('box')
   function changeText(){
-    Promise.resolve().then(function() { // 模拟数据更新，渲染dom
+    Promise.resolve().then(function() { // 模拟数据更新，异步渲染dom
       box.innerHTML = '更改后的text'
     })
     nextTick(function() {
