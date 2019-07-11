@@ -17,7 +17,7 @@
   const parent = document.getElementById('parent')
   const child_nodes = parent.childNodes;
   const nodes_length_1 = child_nodes.length
-  const parent.appendChild(document.createElement('div'))
+  parent.appendChild(document.createElement('div'))
   const nodes_length_2 = child_nodes.length
   ```
 

@@ -66,20 +66,21 @@
     上述代码运行结果
 
     > pp2 undefined
-    > pp4 1
-
+    >
+  > pp4 1
+    
     由此可见，当pp3中`onFulfilled`不是一个方法时，pp中的value穿透到了pp4中
     
   * 2.3  `then`必须返回一个`promise`对象
-  
+
     ```js
     promise2 = promise1.then(onFulfilled, onRejected)
     ```
-  
+
     当`onFulfilled` or`onRejected`抛出异常, `promise2`状态变为`rejected`，并将`Error`作为`reason`值
     
   * 2.4  当`onFulfilled` or`onRejected`返回一个值`x`，则执行` Promise Resolution Procedure: [[Resolve]](promise2, x)`，即类似执行以下伪代码：
-  
+
     ```js
     promise2 = new Promise(function(resolve){
        resolve(x)
@@ -847,7 +848,7 @@ export default TsPromise;
 
 ### 小结
 
-`TypeScript`实现`Promise`到此结束。在[promise/A+ 规范中](https://promisesaplus.com/)有提到 `“宏任务（macro-task）”`机制和`“微任务（micro-task）”`。下一篇就将学习一下相关知识—[`Event Loop`]((前端进阶/TypeScript实现Promise中.md))
+`TypeScript`实现`Promise`到此结束。在[promise/A+ 规范中](https://promisesaplus.com/)有提到 `“宏任务（macro-task）”`机制和`“微任务（micro-task）”`。下一篇就将学习一下相关知识—[`Event Loop`](前端进阶/TypeScript实现Promise中.md)
 
 **参考资料**
 
