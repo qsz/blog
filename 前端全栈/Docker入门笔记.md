@@ -1,6 +1,6 @@
 # Docker入门笔记
 
-工作需要，部署过Sentry，因此接触到docker。本文作为docker的入门学习中的个人笔记，记录docker的入门知识。很多地方只记录了个人认为比较重要的点，具体更详细的可以参考一下文档
+工作需要，部署过Sentry，因此接触到docker。本文作为docker的入门学习中的个人笔记，记录docker的入门知识。很多地方只记录了个人认为比较重要的点，具体更详细的可以参考一下文档<br/>
 **学习资料**：
 
 * [docker入门到实践](https://yeasy.gitbooks.io/docker_practice)
@@ -230,7 +230,7 @@ RUN buildDeps='gcc libc6-dev make wget' \
 
 * `run` 在指定服务上执行一个命令
 
-  `**docker-compose run ubuntu ping [docker.com](http://docker.com/)**`
+  `docker-compose run ubuntu ping [docker.com](http://docker.com/)`
 
   将会启动一个 ubuntu 服务容器，并执行 ping [docker.com](http://docker.com/) 命令 
 
@@ -316,4 +316,5 @@ RUN buildDeps='gcc libc6-dev make wget' \
 * ports  映射端口的标签
 * volumes  挂载一个目录或者一个已存在的数据卷容器
 
-* command  
+* command  覆盖容器启动后默认执行的命令  `command: echo "hello world"`
+
