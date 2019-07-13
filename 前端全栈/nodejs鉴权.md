@@ -259,6 +259,8 @@ Buffer.from('qqq:123456').toString('base64') = "cXFxOjEyMzQ1Ng=="
 
 如果我们删除`Authorization`, 再次请求，就会提示“Unauthorized”
 
+> Basic认证的安全缺陷比较明显，它通过明文传输用户的密码，这会导致严重的安全问题
+
 **参考**
 
 * [一文读懂HTTP Basic身份认证](https://juejin.im/entry/5ac175baf265da239e4e3999)
@@ -326,8 +328,9 @@ Buffer.from('qqq:123456').toString('base64') = "cXFxOjEyMzQ1Ng=="
 
 6. 当我们再次访问`http://localhost:3000/github`, 不需要再次授权，会直接重定向到`http://localhost:3000/home`, 并返回信息`hello xxx`。
 
-**参考**
+使用OAuth授权，第三方应用不会涉及到用户的帐号信息(如账号与密码)， 第三方应用无需使用用户的用户名与密码就可以申请获得该用户资源的授权，因此OAuth比较安全  
 
+**参考**
 * [第三方登入例子-GitHub授权登入](https://www.jianshu.com/p/a9c0b277a3b3)
 * [OAuth 2.0 的一个简单解释](http://www.ruanyifeng.com/blog/2019/04/oauth_design.html)
 
