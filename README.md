@@ -17,8 +17,9 @@
   * [NodeList, HTMLCollection, HTMLElement解析](前端进阶/HTMLElement.md)
   * [从TypeScript实现Promise到Event Loop上](前端进阶/TypeScript实现Promise上.md)
   * [从TypeScript实现Promise到Event Loop中](前端进阶/TypeScript实现Promise中.md)
+  * [用TypeScript实现实现一个移动端左滑插件](前端进阶/移动端左滑插件.md)
+  * [编写一个TypeScript项目初始化脚手架: ts-cli]
   * [TypeScript 实现 vue-router]
-  * [实现一个移动端左滑插件]
   
 * 前端可视化
 
