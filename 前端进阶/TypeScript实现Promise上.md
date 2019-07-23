@@ -68,9 +68,9 @@
     > pp2 undefined
     >
   > pp4 1
-    
+  
     由此可见，当pp3中`onFulfilled`不是一个方法时，pp中的value穿透到了pp4中
-    
+  
   * 2.3  `then`必须返回一个`promise`对象
 
     ```js
@@ -450,7 +450,7 @@ ok，成功执行了异步任务。简易的`Promise`已经完成。但我们的
                         then.call(x, resolvePromise, rejectPromise);
                     } else {
                         // `TP/A+ 3.3.4`若不是一个函数，promise2状态变为fulfilled, value值为x
-                        defered.promise.resolve(x);
+                        defered.promise.doResolve(x);
                     }
                 } catch (e) {
                     // `TP/A+ 3.3.2` x.then抛出错误Error, promise2状态变为rejected, reason值变为Error
@@ -460,7 +460,7 @@ ok，成功执行了异步任务。简易的`Promise`已经完成。但我们的
                 }
             } else {
               // `TP/A+ 3.4`若 x不是一个对象或方法, promise2状态变为fulfilled, value值为x
-              defered.promise.resolve(x);
+              defered.promise.doResolve(x);
             }
         }
   };
@@ -600,10 +600,10 @@ interface Thenable<T> {
 
 // 实现thenable
 class TsPromise<T = any> implements Thenable<T> {
-    static resolve = (value: any): TsPromise => {
+    static resolve = (value?: any): TsPromise => {
         return new TsPromise(resolve => resolve(value));
     };
-    static reject = (reason: any): TsPromise => {
+    static reject = (reason?: any): TsPromise => {
         return new TsPromise((resolve, reject) => reject(reason));
     };
     static race = (promises: Array<any>): TsPromise => {
