@@ -1,7 +1,7 @@
 # 撸一个用于创建typescript库的脚手架
 
 ## 前言
-学习`typescript`的时候往往需要搭一套环境，好在github有大神提供脚手架[typescript-library-starter](https://github.com/alexjoverm/typescript-library-starter)。但这个脚手架需要每次`git clone`，稍显繁琐。本文我们就打算将其改造成类似`vue-cli`的工具，顺便学习一下如何创建命令行工具。
+学习`typescript`的时候往往需要搭一套环境，好在github有大神提供脚手架[typescript-library-starter](https://github.com/alexjoverm/typescript-library-starter)。但这个脚手架需要每次`git clone`，稍显繁琐。本文我们将其改造成类似`vue-cli`的工具，以此学习一下如何创建命令行工具。
 
 > [代码地址](https://github.com/qsz/ts-lib-cli)
 
