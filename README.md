@@ -9,6 +9,7 @@
 
   * [在Centos环境中从零开始部署错误报告工具-Sentry](前端工程/Sentry部署.md)
   * [前端npm私服搭建](前端工程/npm私服搭建.md)
+  * [编写一个TypeScript库初始化脚手架](前端工程/typescript脚手架.md)
 
 * 前端进阶
   * [前端安全之防御XSS跨站脚本攻击](前端进阶/XSS跨站脚本攻击.md)
@@ -18,7 +19,7 @@
   * [从TypeScript实现Promise到Event Loop上](前端进阶/TypeScript实现Promise上.md)
   * [从TypeScript实现Promise到Event Loop中](前端进阶/TypeScript实现Promise中.md)
   * [用TypeScript实现实现一个移动端左滑插件](前端进阶/移动端左滑插件.md)
-  * [编写一个TypeScript项目初始化脚手架: ts-cli]
+  * [踩坑系列：await 在 forEach 中不生效]
   * [TypeScript 实现 vue-router]
   
 * 前端可视化
