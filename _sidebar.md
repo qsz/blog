@@ -13,6 +13,7 @@
   -  [从TypeScript实现Promise到Event Loop上](前端进阶/TypeScript实现Promise上.md)
   -  [从TypeScript实现Promise到Event Loop中](前端进阶/TypeScript实现Promise中.md)
   -  [用TypeScript实现实现一个移动端左滑插件](前端进阶/移动端左滑插件.md)
+  -  [踩坑系列：await 在 forEach 中不生效](前端进阶/await在forEach中不生效.md)
   
 
 -  前端可视化
