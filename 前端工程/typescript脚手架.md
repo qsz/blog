@@ -203,6 +203,23 @@ function prompt() {
 
 为了我们下次使用方便，最后将我们的脚手架发布到`npm仓库`
 
+#### npm publish 过滤文件
+在实践中，发现`npm publish`会过滤`.gitignore`文件。所以如果希望模版文件夹里保存`.gitignore`文件。可以新建一个`gitignore.txt`文件，当初始化的时候再创建`.gitignore`文件
+```javascript
+const { mv } = require("shelljs")
+/**
+ * 创建文件.gitignore文件
+ */
+function createGitignore() {
+  mv(
+    path.resolve(__dirname, "./gitignore.txt"),
+    path.resolve(__dirname, "..", '.gitignore')
+  )
+}
+```
+**参考**
+* [npm publish过滤部分文件](https://www.jianshu.com/p/44b61940e40e)
+
 
 
 ## 小结
