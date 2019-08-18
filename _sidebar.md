@@ -15,7 +15,7 @@
   -  [用TypeScript实现实现一个移动端左滑插件](前端进阶/移动端左滑插件.md)
   -  [TypeScript 实现 vue-router](前端进阶/ts实现一个简易的vue-router.md)
   -  [踩坑系列：await 在 forEach 中不生效](前端进阶/await在forEach中不生效.md)
-  
+  -  [redux异步action的原理](前端进阶/redux异步action的原理.md)
 
 -  前端可视化
 
