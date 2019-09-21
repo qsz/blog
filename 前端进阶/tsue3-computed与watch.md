@@ -1,4 +1,4 @@
-# typescript从零开始实现vue(三) - computed 和watch
+# typescript从零开始实现vue(三) : computed 和watch
 
 这一章，我们来实现计算属性`computed` 和 侦听器`watch`。
 

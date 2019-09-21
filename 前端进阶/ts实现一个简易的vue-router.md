@@ -6,7 +6,7 @@
 * vue 插件编写
 * vue-router基本原理实现
 
-
+[**完整代码**](https://github.com/qsz/TsVRouter)
 
 ## 前端路由
 

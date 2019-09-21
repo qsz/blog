@@ -1,4 +1,4 @@
-# typescript从零开始实现vue(一) - 实例化和 Virtual DOM 
+# typescript从零开始实现vue(一) : 实例化和 Virtual DOM 
 
 本文开始，将学习用`typescript`从零开始实现一个基础的`vue`。目的是为了学习`vue`整个实现流程。通过这一系列的学习，将实现`vue`以下几个基础功能：
 
@@ -7,6 +7,16 @@
 * 计算属性`computed` 和 侦听器`watch`
 * 组件化和生命周期
 * 虚拟`DOM`更新(`diff`)
+
+
+
+## 该系列完整代码地址
+
+[**ts-vue**](https://github.com/qsz/ts-vue)
+
+
+
+
 
 ## 准备工作
 
