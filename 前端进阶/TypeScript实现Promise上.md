@@ -152,7 +152,7 @@
 
 根据**`TP/A+ 1`**定义`PromiseState`的类型
 
-```typescript
+```js
 // 定义state的类型
 enum PromiseState {
     PENDING = 'pending',      // 等待态
@@ -167,7 +167,7 @@ type Reject = (reason: any) => void;
 
 定义 `TsPromise`构造函数
 
-```typescript
+```javascript
 class TsPromise {
     private state: PromiseState = PromiseState.PENDING; // 初始状态pending
     private value: any = null;                          // fulfilled时候的返回值
@@ -211,7 +211,7 @@ class TsPromise {
 
 尝试一下这个`TsPromise`
 
-```ts
+```javascript
 const tsPromise = new TsPromise(function(resolve, reject) {
   resolve(1)
 })
@@ -225,7 +225,7 @@ tsPromise.then(function(res: any){
 
 但上述代码存在问题，接下尝试改一下调用方式，改为异步执行
 
-```typescript
+```javascript
 const tsPromise = new TsPromise(function(resolve, reject) {
   setTimeout(function(){
     resolve(1)
@@ -245,7 +245,7 @@ tsPromise.then(function(res: any){
 
 增加任务队列`deferreds: Array<Handler> = []`
 
-```typescript
+```javascript
 class TsPromise {
   
   ...
@@ -309,7 +309,7 @@ class Handler {
 
 尝试异步调用
 
-```typescript
+```javascript
 const tsPromise = new TsPromise(function(resolve, reject) {
   setTimeout(function(){
     resolve(1)
@@ -331,7 +331,7 @@ ok，成功执行了异步任务。简易的`Promise`已经完成。但我们的
 
   > 根据 `TP/A+ 2.3: ` `then`必须返回一个`promise`对象 
 
-  ```typescript
+  ```js
   
   public then(this: TsPromise, onFulfilled: any, onRejected?: any): TsPromise {
     const promise2 = new TsPromise(function(){});
@@ -346,7 +346,7 @@ ok，成功执行了异步任务。简易的`Promise`已经完成。但我们的
 
   > 根据`TP/A+ 2.3:` 如果`onFulfilled` 和 `onRejected` 不是方法，需要被忽略。且将当前`Promise`的值穿透到下一个`Promise`
 
-  ```typescript
+  ```javascript
   // 单个异步任务
   class Handler {
       onFulfilled: any;
@@ -367,7 +367,7 @@ ok，成功执行了异步任务。简易的`Promise`已经完成。但我们的
   ```
 
 * 实现`handle`方法
-  ```typescript
+  ```js
   private readonly handle = (deferred: Handler) => {
           // 当前的promise还是pending状态，则把deferred放到当前promise的任务队列里
           if (this.state === PromiseState.PENDING) { 
@@ -398,7 +398,7 @@ ok，成功执行了异步任务。简易的`Promise`已经完成。但我们的
 * 最关键的部分  `Promise Resolution Procedure`**(Promise解决过程)**，我们在`handleResolved`函数中实现。`handleResolved`接受两个值：上一步`onFulfilled or onRejected`执行后的返回值 `x`, 以及下一个异步任务`defered`。
   首先改写下前面的`resolve`。我们不知`onFulfilled or onRejected`执行后的返回值 `x`做判断，初始化时`Promise`中的传参数也需要判断
 
-  ```typescript
+  ```javascript
   private readonly resolve: Resolve<T> = (value): void => {
           const defered = new Handler('', '', this);
           // Promise Resolution Procedure
@@ -417,7 +417,7 @@ ok，成功执行了异步任务。简易的`Promise`已经完成。但我们的
 
   实现`handleResolved`方法
 
-  ```typescript
+  ```javascript
    private readonly handleResolved = (x: any, defered: Handler): void => {
         if (x !== this.IS_ERROR) {       // 如果不报错
             // 如果 onFulfilled 或者 onRejected 返回一个值 x ，则运行下面的 Promise 解决过程
@@ -473,14 +473,14 @@ ok，成功执行了异步任务。简易的`Promise`已经完成。但我们的
 
 * `catch`:  用于捕获错误。即返回一个**`thenable`**类型的对象，用于处理`rejected`状态
   
-  ```typescript
+  ```javascript
    public catch(this: TsPromise, onRejected: any): TsPromise {
         return this.then(null, onRejected);
    }
 	```
 
 * `finally`: 指定不管 `Promise` 对象最后状态如何，都会执行的操作。因此在`onFulfilled`和`onRejected`都执行回调函数
-	```typescript
+	```js
     public finally(f: any): TsPromise {
        return this.then(function(value: any) {
                 f();
@@ -494,7 +494,7 @@ ok，成功执行了异步任务。简易的`Promise`已经完成。但我们的
 
 * `resolve`:  即返回一个`fulfilled`状态的`Promise`实例， 可将现有对象转为 Promise 对象
 
-  ```typescript
+  ```javascript
   static resolve = (value: any): TsPromise => {
      return new TsPromise(resolve => resolve(value));
   };
@@ -504,7 +504,7 @@ ok，成功执行了异步任务。简易的`Promise`已经完成。但我们的
 
 * `reject`:  返回一个新的 `Promise` 实例，该实例的状态为`rejected`
 
-  ```typescript
+  ```js
   static reject = (reason: any): TsPromise => {
     return new TsPromise((resolve, reject) => reject(reason));
   };
@@ -525,7 +525,7 @@ ok，成功执行了异步任务。简易的`Promise`已经完成。但我们的
   * 参数中只要有一个实例状态改变，Promise的状态就会改变( 无论是成功态还是失败态 )
 
   实现代码
-  ```typescript
+  ```javascript
   static race = (promises: Array<any>): TsPromise => {
           return new TsPromise(function (resolve, reject) {
               for (const promise of promises) {
@@ -549,7 +549,7 @@ ok，成功执行了异步任务。简易的`Promise`已经完成。但我们的
   > ```
 
   实现该方法
-  ```typescript
+  ```javascript
   static all = (promises: Array<any>): TsPromise => {
           return new TsPromise(function (resolve, reject) {
               const length: number = promises.length;
@@ -577,7 +577,7 @@ ok，成功执行了异步任务。简易的`Promise`已经完成。但我们的
 #### TsPromise完整代码
 到此为止，我们的**TsPromise**已经实现，完整代码如下
 
-```typescript
+```javascript
 // 定义state的类型
 enum PromiseState {
     PENDING = 'pending',

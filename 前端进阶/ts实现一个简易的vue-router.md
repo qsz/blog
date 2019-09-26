@@ -304,7 +304,7 @@ namespace TsVue {
 
 首先看代码
 
-```typescript
+```javascript
 // 插件应该暴露一个 install 方法。这个方法的第一个参数是 Vue 构造器
 function install(this: TsVue.TVue, Vue: TsVue.TsConstructor) {
     Vue.mixin({
@@ -367,7 +367,7 @@ new Vue({
 
 `defineReactive`是vue内部提供的方法，定义在`/src/core/observer`。功能是将一个对象的子对象递归调用`Object.defineProperty`，使该对象的所有子对象都具有响应式
 
-```typescript
+```javascript
 export function defineReactive (
   obj: Object,
   key: string,
@@ -452,7 +452,7 @@ interface History {
 
 #### 实现TsVRouter构造函数
 
-```typescript
+```javascript
 export default class TsVRouter extends TsRouter{
   static install = install;
   mode: RouterMode;
@@ -501,7 +501,7 @@ export default class TsVRouter extends TsRouter{
 
 ##### Html5History
 
-```typescript
+```javascript
 class Html5History extends BaseHistory {
     constructor(rootRouter: TsRouter) {
         super(rootRouter);
@@ -522,7 +522,7 @@ class Html5History extends BaseHistory {
 
 ##### HashHistory
 
-```typescript
+```javascript
 class HashtHistory extends BaseHistory {
     constructor(rootRouter: TsRouter) {
         super(rootRouter);
@@ -555,7 +555,7 @@ class HashtHistory extends BaseHistory {
 
 在`RouterView`组件中根据映射关系`maper`拿到当前`url`对应的`component`，调用`render`函数进行渲染
 
-```typescript
+```javascript
 const RouterView: TsVue.TsComponentOptions =  {
     name: 'RouterView',
     render(this: TsVue.TVue, h: TsVue.TsCreateElement) {
@@ -587,7 +587,7 @@ interface CreateElement {
 
 `RouterLink`接收参数`to`，用来表示跳转的页面路径。可以用`name`也可以用`path`。如：`  <tsrouter-link :to="{path: '/foo'}">`或者`  <tsrouter-link :to="{name: 'foo'}">`。当为`name`时，则根据`maper`中的映射关系，拿到对应的`path`。在这里将`RouterLink`渲染为`<a>`标签，同时用`event.preventDefault()`阻止其默认行为，防止页面跳转导致页面刷新，用`history.push`来代替`<a>`标签的跳转。
 
-```typescript
+```javascript
 const RouterLink: TsVue.TsComponentOptions =  {
     props: {
         to: {
