@@ -110,7 +110,7 @@ class Observer {
 } 
 ```
 
-`walk`会遍历`value`，调用`defineReactive`方法，将`value`的每个属性都变为响应式。为了方便起见，这里只考了`value`为对象的情况。在`vue`中还会对数组类型的`value`做处理，原理也是大同小异，即遍历数组的每个元素。
+`walk`会遍历`value`，调用`defineReactive`方法，将`value`的每个属性都变为响应式。为了方便起见，这里只考了`value`为对象的情况。~~在`vue`中还会对数组类型的`value`做处理，原理也是大同小异，即遍历数组的每个元素~~。(对于`value`为数组的情况，将在补充章节中介绍)
 
 #### defineReactive
 
