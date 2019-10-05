@@ -470,7 +470,7 @@ export default class TsVRouter extends TsRouter{
         this.history = new HashHistory(this);
         break;
       case RouterModeValue.html5:
-        if(window.onpopstate) { 
+        if(window.hasOwnProperty('onpopstate')) { 
           this.history = new Html5History(this);
         } else { // 降级处理
           this.history = new HashHistory(this);
