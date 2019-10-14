@@ -14,6 +14,7 @@
   -  [TypeScript 从零开始实现vue(四)](前端进阶/tsue4-组件化和生命周期.md)
   -  [TypeScript 从零开始实现vue(五)](前端进阶/tsue5-组件更新diff算法.md)
   -  [TypeScript 从零开始实现vue(补充)](前端进阶/tsue补充-数组的响应式.md)
+  -  [观察者和发布订阅真的不一样吗？](前端进阶/观察者和发布订阅真的不一样吗.md)
   -  [redux异步action的原理](前端进阶/redux异步action的原理.md)
   -  [前端安全之防御XSS跨站脚本攻击](前端进阶/XSS跨站脚本攻击.md)
   -  [前端安全之防御CSRF跨站请求伪造](前端进阶/CSRF跨站请求伪造.md)
