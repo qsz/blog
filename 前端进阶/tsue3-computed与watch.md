@@ -86,6 +86,8 @@ this.getter = function() {
 }
 ```
 
+**由于在watch初始化之前，已经完成了data的初始化，将data变为响应式。此时在watch的`getter`中获取data的值，会触发data的`get`，从而实现data对watch的依赖收集。**
+
 最后，在数据更新的时候, 判断当为自定义的`watcher`时，则执行自定义时传入的回调函数，并传入变化前后的值。
 
 ```js
@@ -322,7 +324,7 @@ const tsue = new Tsue({
 
 => 执行完`watcher.evaluate()`后，我们就会拿到计算属性的值，同时当前观察者(`Dep.target`)依然为渲染`watcher`。
 
-=> 最后执行计算属性`watcher.depend()`，将当前观察者（即**渲染`watcher`**）添加到计算属性`watcher`关联的`dep`（即`this.age`的`dep`）的观察者列表中。注意，此时，**`this.age`的`dep`的观察者列表中就会有两个`watcher`:计算属性`watcher`和渲染`watcher`**。
+=> 最后执行计算属性`watcher.depend()`，将当前观察者（即**渲染`watcher`**）添加到计算属性`watcher`关联的`dep`（即`this.age`的`dep`）的观察者列表中。注意，此时，**`this.age`的`dep`的观察者列表中就会有两个`watcher`:先后顺序为：计算属性`watcher`和渲染`watcher`**。
 
 => 这样，每当`this.age`的值改变，触发`setter`，将会通知所有收集的`watcher`（在我们这个例子里就是计算属性`watcher`和渲染`watcher`），执行`watccher.update`
 
@@ -624,7 +626,7 @@ this._nextTick(function() {
 
 ![tsvue6](./files/tsvue6.gif)
 
-如图，利用`_nextTick`把我们的回调函数和页面重新渲染放入了同一个事件循环，所以拿到了更新的数据
+如图，利用`_nextTick`把我们的回调函数放在页面重新渲染后的下一个事件循环中执行，所以拿到了更新的数据
 
 
 
