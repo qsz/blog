@@ -32,7 +32,8 @@
    - `WebGLProgram`由两个`WebGLShaders`，分别为`顶点着色器`和`片元着色器`
    - 一个 `WebGL 应用`可以包含多个 `program`
    - 创建并使用流程
-   
+
+#### 一个简单的例子
 ```javascript
 const program = gl.createProgram(); // 创建着色器程序
 
@@ -59,6 +60,7 @@ gl.useProgram(program);
 // 删除着色器程序
 gl.deleteProgram(program);
 ```
+
 
 ## [WebGL API](https://developer.mozilla.org/zh-CN/docs/Web/API/WebGLTexture)
 
