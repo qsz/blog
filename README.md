@@ -6,10 +6,10 @@
 ## 目录
 
 * 前端工程
-
   * [在Centos环境中从零开始部署错误报告工具-Sentry](前端工程/Sentry部署.md)
   * [前端npm私服搭建](前端工程/npm私服搭建.md)
   * [编写一个TypeScript库初始化脚手架](前端工程/typescript脚手架.md)
+  * [webpack按需加载](前端工程/webpack按需加载.md) 
 
 * 前端进阶
   * [从TypeScript实现Promise到Event Loop上](前端进阶/TypeScript实现Promise上.md)
@@ -31,6 +31,8 @@
   * [踩坑系列：await 在 forEach 中不生效](前端进阶/await在forEach中不生效.md)
   
 * 前端可视化
+  * [动手开发一个视频监控播放器](前端可视化/动手开发一个视频监控播放器.md)
+  * [前端可视化](前端可视化/WebGl笔记.md)
 
 * 前端全栈
   * [docker入门笔记](前端全栈/Docker入门笔记.md)
