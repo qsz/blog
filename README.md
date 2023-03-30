@@ -7,6 +7,7 @@
 
 * 前端工程
   * [在Centos环境中从零开始部署错误报告工具-Sentry](前端工程/Sentry部署.md)
+  * [自研前端异常监控系统- js hunter](前端工程/Sentry部署.md)
   * [前端npm私服搭建](前端工程/npm私服搭建.md)
   * [编写一个TypeScript库初始化脚手架](前端工程/typescript脚手架.md)
   * [webpack按需加载](前端工程/webpack按需加载.md) 
