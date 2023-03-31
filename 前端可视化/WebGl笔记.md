@@ -161,20 +161,20 @@ gl.vertexAttrib4f(index, v0, v1, v2, v3);
          - 整型值 Number  (方法名跟"i").
          - 整型数组Int32Array 用于整型向量方法 (方法名跟 "iv").
       - eg:
-	  
-	```javascript
-	// eg1: 传递二维向量数组
-	glsl: uniform vec2 vFrames[3]; // [2, 88, 90, 176, 178, 264]
 
-	const vFrames = gl.getUniformLocation(program, "vFrames");
-	gl.uniform2fv(vFrames, new Float32Array([2, 88, 90, 176, 178, 264]));
+		```javascript
+		// eg1: 传递二维向量数组
+		glsl: uniform vec2 vFrames[3]; // [2, 88, 90, 176, 178, 264]
 
-	// eg2: 传递二维向量
-	glsl: uniform vec2 vFrames; // [2, 88, 90, 176, 178, 264]
+		const vFrames = gl.getUniformLocation(program, "vFrames");
+		gl.uniform2fv(vFrames, new Float32Array([2, 88, 90, 176, 178, 264]));
 
-	const vFrames = gl.getUniformLocation(program, "vFrames");
-	gl.uniform2fv(vFrames, new Float32Array([2, 88]));
-	```
+		// eg2: 传递二维向量
+		glsl: uniform vec2 vFrames; // [2, 88, 90, 176, 178, 264]
+
+		const vFrames = gl.getUniformLocation(program, "vFrames");
+		gl.uniform2fv(vFrames, new Float32Array([2, 88]));
+		```
 
    - `gl.uniformMatrix[234]fv(location, transpose, value)` 给 uniform 变量指定矩阵值
       - `transpose` 是否转置矩阵。必须为 false
@@ -192,20 +192,20 @@ gl.vertexAttrib4f(index, v0, v1, v2, v3);
          - `bufferData` 和 `vertexAttribPointer` 都要在 `bindBuffer`之后
    - 如何从缓冲区中取数据
       - `gl.enableVertexAttribArray(index)` 激活顶点属性
-         - `index` 类型为`GLuint`的索引，指向要激活的顶点属性。可以使用`getAttribLocation()`来获取索引
-		 
-			```javascript
-			gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
+		- `index` 类型为`GLuint`的索引，指向要激活的顶点属性。可以使用
+		`getAttribLocation()`来获取索引
+		
+		```javascript
+		gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
 
-			aVertexPosition = gl.getAttribLocation(shaderProgram, "aVertexPosition");
+		aVertexPosition = gl.getAttribLocation(shaderProgram, "aVertexPosition");
 
-			gl.enableVertexAttribArray(aVertexPosition);
+		gl.enableVertexAttribArray(aVertexPosition);
 
-			gl.vertexAttribPointer(aVertexPosition, vertexNumComponents, gl.FLOAT, false, 0, 0);
+		gl.vertexAttribPointer(aVertexPosition, vertexNumComponents, gl.FLOAT, false, 0, 0);
 
-			gl.drawArrays(gl.TRIANGLES, 0, vertexCount);
-			```
-
+		gl.drawArrays(gl.TRIANGLES, 0, vertexCount);
+		```
 	- 一旦激活，以下其他方法就可以获取到属性的值了，包括`vertexAttribPointer()`，`vertexAttrib()`，和 `getVertexAttrib()`
     	 - `gl.vertexAttribPointer(index, size, type, normalized, stride, offset)` 决定了目标属性如何从缓冲区中读取数据
 			 - `index/target` 允许哪个属性读取当前缓冲区的数据.
