@@ -1,4 +1,4 @@
-# 从TypeScript实现Promise到Event Loop（上）
+# 从实现Promise看Event Loop(一)
 
 `Promise `是异步编程的一种解决方案，比传统的解决方案——回调函数和事件——更合理和更强大。`Promise`的实现基于`Promises/A+`规范
 

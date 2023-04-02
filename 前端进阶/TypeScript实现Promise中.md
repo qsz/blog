@@ -1,4 +1,4 @@
-# 从TypeScript实现Promise到Event Loop（中）
+# 从实现Promise看Event Loop(二)
 
 **本系列将学习**
 
